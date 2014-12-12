@@ -1,4 +1,4 @@
-module piano(clk, speaker);
+module note(clk, speaker);
 input clk;
 output reg speaker;
 parameter clkdivider = 25000000/440/2;
@@ -21,8 +21,22 @@ endmodule
 
 module testpiano;
 reg clk;
-wire speaker;
-piano p(clk, speaker);
+wire A4;
+wire B;
+wire C;
+wire D;
+wire E;
+wire F;
+wire G;
+wire A5;
+note #(25000000/440/2) a4(clk, A4);
+note #(25000000/494/2) b(clk, B);
+note #(25000000/523/2) c(clk, C);
+note #(25000000/587/2) d(clk, D);
+note #(25000000/659/2) e(clk, E);
+note #(25000000/698/2) f(clk, F);
+note #(25000000/784/2) g(clk, G);
+note #(25000000/880/2) a5(clk, A5);
 
 initial begin
   clk = 0;
@@ -33,19 +47,13 @@ end
 endmodule
 
 /*
-440 //A4
-466
-493
-523
-554
-587
-622
-659
-698
-739
-783
-803
-
+440 A4
+494 B
+523 C
+587 D
+659 E
+698 F
+784 G
 880 //A5
 
 
