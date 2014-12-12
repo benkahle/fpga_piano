@@ -21,14 +21,7 @@ endmodule
 
 module testpiano;
 reg clk;
-wire A4;
-wire B;
-wire C;
-wire D;
-wire E;
-wire F;
-wire G;
-wire A5;
+wire A4, B, C, D, E, F, G, A5;
 note #(25000000/440/2) a4(clk, A4);
 note #(25000000/494/2) b(clk, B);
 note #(25000000/523/2) c(clk, C);
